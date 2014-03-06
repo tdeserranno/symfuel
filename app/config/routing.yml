@@ -1,0 +1,4 @@
+fuel_tech_support:
+    resource: "@FuelTechSupportBundle/Resources/config/routing.yml"
+    prefix:   /
+

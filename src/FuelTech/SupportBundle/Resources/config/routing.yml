@@ -1,0 +1,3 @@
+fuel_tech_support_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: FuelTechSupportBundle:Default:index }
