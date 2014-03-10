@@ -5,5 +5,28 @@
     Klanten
 {%endblock%}
 {%block content%}
-    SupportBundle Klantenlijst
+    <h2>Klantenlijst</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Naam</td>
+                <td>Adres</td>
+                <td>Postcode</td>
+                <td>Stad</td>
+                <td>Telefoon</td>
+            </tr>
+        </thead>
+        <tfoot></tfoot>
+        <tbody>
+            {%for client in clients%}
+            <tr>
+                <td><a href="{{path('ftsupport_client_detail', {'id':client.id})}}">{{client.name}}</a></td>
+                <td>{{client.address}}</td>
+                <td>{{client.postcode}}</td>
+                <td>{{client.city}}</td>
+                <td>{{client.telephone}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
 {%endblock%}

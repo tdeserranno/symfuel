@@ -248,4 +248,49 @@ class Client
     {
         return $this->remark;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contacts;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add contacts
+     *
+     * @param \FuelTech\SupportBundle\Entity\Contact $contacts
+     * @return Client
+     */
+    public function addContact(\FuelTech\SupportBundle\Entity\Contact $contacts)
+    {
+        $this->contacts[] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Remove contacts
+     *
+     * @param \FuelTech\SupportBundle\Entity\Contact $contacts
+     */
+    public function removeContact(\FuelTech\SupportBundle\Entity\Contact $contacts)
+    {
+        $this->contacts->removeElement($contacts);
+    }
+
+    /**
+     * Get contacts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
 }

@@ -136,4 +136,32 @@ class Contact
     {
         return $this->mobile;
     }
+    /**
+     * @var \FuelTech\SupportBundle\Entity\Client
+     */
+    private $client;
+
+
+    /**
+     * Set client
+     *
+     * @param \FuelTech\SupportBundle\Entity\Client $client
+     * @return Contact
+     */
+    public function setClient(\FuelTech\SupportBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \FuelTech\SupportBundle\Entity\Client 
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
 }

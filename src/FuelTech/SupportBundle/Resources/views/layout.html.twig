@@ -1,11 +1,15 @@
 {% extends "::base.html.twig" %}
 
+{%block stylesheets%}
+    {{parent()}}
+    <link href="{{asset('bundles/fueltechsupport/css/main.css')}}" rel="stylesheet">
+{%endblock%}
 {%block title%}
     FT Support - 
 {%endblock%}
 {%block body%}
     {%block navigation%}
-    <nav>
+    <nav class="navigation clearfix">
         <ul>
             <li><a href="{{path('ftsupport_home')}}">Home</a></li>
             <li><a href="{{path('ftsupport_client_list')}}">Klanten</a></li>

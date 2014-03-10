@@ -2,8 +2,28 @@
 
 {%block title%}
     {{parent()}}
-    Klant - {{id}}
+    Klant
 {%endblock%}
 {%block content%}
-    SupportBundle Klant detail klantid = {{id}}
+    {#<div>
+        
+        <p>Naam: {{client.name}}</p>
+        <p>Adres: {{client.address}}</p>
+        <p>Postcode: {{client.postcode}}</p>
+        <p>Stad: {{client.city}}</p>
+        <p>Telefoon: {{client.telephone}}</p>
+        <p>Fax: {{client.fax}}</p>
+        <p>Email: {{client.email}}</p>
+        <p>Opmerkingen:<br>{{client.remark}}</p>
+    </div>
+    <div>
+        <h2>Contactpersonen</h2>
+        {%for contact in client.contacts%}
+        <div>
+            {{contact.name}} {{contact.telephone}} {{contact.mobile}} {{contact.email}}
+        </div>
+        {%endfor%}
+    </div>#}
+    <h2>Klantgegevens</h2>
+    {{form(form)}}
 {%endblock%}
