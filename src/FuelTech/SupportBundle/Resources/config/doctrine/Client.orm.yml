@@ -1,0 +1,38 @@
+FuelTech\SupportBundle\Entity\Client:
+    type: entity
+    table: client
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+        address:
+            type: string
+            length: 100
+        postcode:
+            type: string
+            length: 4
+        city:
+            type: string
+            length: 50
+        telephone:
+            type: string
+            length: 15
+        fax:
+            type: string
+            length: 15
+        email:
+            type: string
+            length: 255
+        remark:
+            type: text
+    oneToMany:
+        contacts:
+            targetEntity : Contact
+            mappedBy: client
+    lifecycleCallbacks: {  }
