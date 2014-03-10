@@ -1,6 +1,6 @@
-fuel_tech_support_hello:
-    pattern:  /hello/{name}
-    defaults: { _controller: FuelTechSupportBundle:Default:index }
-fuel_tech_support_hello:
+#fuel_tech_support_hello:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: FuelTechSupportBundle:Default:index }
+fuel_tech_support_home:
     pattern: /
     defaults: { _controller: FuelTechSupportBundle:Home:index }

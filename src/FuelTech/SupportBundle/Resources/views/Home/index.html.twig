@@ -1,2 +1,9 @@
-{%block title%}FTSupport - Home{%endblock%}
-{%block body%}SupportBundle Homepage{%endblock%}
+{% extends "FuelTechSupportBundle::layout.html.twig" %}
+
+{%block title%}
+    {{parent()}}
+    Home
+{%endblock%}
+{%block content%}
+    SupportBundle Homepage
+{%endblock%}
