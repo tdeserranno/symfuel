@@ -6,6 +6,7 @@ FuelTech\SupportBundle\Entity\Client:
         address:
             - NotBlank: ~
         postcode:
+            - NotBlank: ~
             - Type: integer
             - Length:
                 min: 4

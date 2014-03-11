@@ -10,7 +10,7 @@
     display: inline-block;
     width: 15%;
     min-width: 7em;
-    vertical-align: top;
+    vertical-align: middle;
 }
 .form_row input {
     width: 40%;
@@ -20,7 +20,12 @@
     width: 40%;
     min-width: 12em;
     height: 6em;
+    vertical-align: top;
 }
 button[type='submit'] {
     margin-left: 15%;
+}
+.form_row .error{
+    margin-left: 1em;
+    width: auto;
 }

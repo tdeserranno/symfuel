@@ -11,7 +11,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    #validation:      { enable_annotations: true }
+#    validation:      { enable_annotations: true }
     validation:      { enabled: true }
     templating:
         engines: ['twig']
@@ -68,3 +68,9 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# FOSUser Configuration
+fos_user:
+     db_driver: orm
+     firewall_name: main
+     user_class: FuelTech\SupportBundle\Entity\User

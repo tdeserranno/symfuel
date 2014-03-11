@@ -7,3 +7,13 @@
         </div>
     {%endspaceless%}
 {%endblock%}
+
+{%block form_errors%}
+    {%spaceless%}
+        <label class="error">
+            {%for error in errors%}
+                {{error.message}}
+            {%endfor%}
+        </label>
+    {%endspaceless%}
+{%endblock%}
