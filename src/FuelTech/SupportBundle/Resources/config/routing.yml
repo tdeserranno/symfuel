@@ -12,3 +12,8 @@ ftsupport_client_detail:
     defaults: { _controller: FuelTechSupportBundle:Client:showDetail }
     requirements:
         id: \d+
+ftsupport_contact_detail:
+    pattern: /contact/{id}
+    defaults: { _controller: FuelTechSupportBundle:Contact:showDetail }
+    requirements:
+        id: \d+

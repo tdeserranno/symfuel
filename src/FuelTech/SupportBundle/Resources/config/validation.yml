@@ -1,0 +1,32 @@
+# FuelTech/SupportBundle/Resources/config/validation.yml
+FuelTech\SupportBundle\Entity\Client:
+    properties:
+        name:
+            - NotBlank: ~
+        address:
+            - NotBlank: ~
+        postcode:
+            - Type: integer
+            - Length:
+                min: 4
+                max: 4
+                minMessage: "Postcode moet exact 4 cijfers zijn"
+                maxMessage: "Postcode moet exact 4 cijfers zijn"
+        city:
+            - NotBlank: ~
+        telephone:
+            - NotBlank: ~
+        fax:
+        email:
+            - Email:
+                checkMX: true
+        remark:
+FuelTech\SupportBundle\Entity\Contact:
+    properties:
+        name:
+            - NotBlank: ~
+        telephone:
+        mobile:
+        email:
+            - Email:
+                checkMX: true

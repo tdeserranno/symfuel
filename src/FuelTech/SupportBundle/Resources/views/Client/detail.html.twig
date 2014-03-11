@@ -1,5 +1,12 @@
 {% extends "FuelTechSupportBundle::layout.html.twig" %}
 
+{% form_theme form 'FuelTechSupportBundle:Form:fields.html.twig' %}
+
+{%block stylesheets%}
+    {{parent()}}
+    <link rel="stylesheet" href="{{asset('bundles/fueltechsupport/css/forms.css')}}">
+{%endblock%}
+
 {%block title%}
     {{parent()}}
     Klant
@@ -25,5 +32,28 @@
         {%endfor%}
     </div>#}
     <h2>Klantgegevens</h2>
-    {{form(form)}}
+    {{form(form, {'attr':{'novalidate':'novalidate'} })}}
+    
+    <h2>Contactpersonen</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Naam</td>
+                <td>Telefoon</td>
+                <td>Mobiel</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tfoot></tfoot>
+        <tbody>
+            {%for contact in contacts%}
+            <tr>
+                <td><a href="{{path('ftsupport_contact_detail', {'id':contact.id})}}">{{contact.name}}</a></td>
+                <td>{{contact.telephone}}</td>
+                <td>{{contact.mobile}}</td>
+                <td>{{contact.email}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
 {%endblock%}

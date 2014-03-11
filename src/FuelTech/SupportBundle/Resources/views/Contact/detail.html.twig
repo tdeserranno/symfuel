@@ -1,0 +1,17 @@
+{% extends "FuelTechSupportBundle::layout.html.twig" %}
+
+{% form_theme form 'FuelTechSupportBundle:Form:fields.html.twig' %}
+
+{%block stylesheets%}
+    {{parent()}}
+    <link rel="stylesheet" href="{{asset('bundles/fueltechsupport/css/forms.css')}}">
+{%endblock%}
+
+{%block title%}
+    {{parent()}}
+    Klant
+{%endblock%}
+{%block content%}
+    <h2>Contactpersoon gegevens</h2>
+    {{form(form, {'attr':{'novalidate':'novalidate'} })}}
+{%endblock%}

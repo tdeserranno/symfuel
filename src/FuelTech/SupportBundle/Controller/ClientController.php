@@ -40,6 +40,7 @@ class ClientController extends Controller
             throw $this->createNotFoundException(
                     'No client found with id = '.$id);
         }
+        $contacts = $client->getContacts();
         
         $form = $this->createForm(new ClientType(), $client);
         
@@ -63,6 +64,7 @@ class ClientController extends Controller
                 array(
 //                    'client' => $client,
                     'form' => $form->createView(),
+                    'contacts' => $contacts,
                 ));
     }
 }

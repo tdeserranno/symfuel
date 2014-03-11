@@ -1,0 +1,26 @@
+/* 
+    Created on : 11-mrt-2014, 9:20:41
+    Author     : cyber02
+*/
+
+.form_row {
+    margin: 0.5em;
+}
+.form_row label{
+    display: inline-block;
+    width: 15%;
+    min-width: 7em;
+    vertical-align: top;
+}
+.form_row input {
+    width: 40%;
+    min-width: 12em;
+}
+.form_row textarea {
+    width: 40%;
+    min-width: 12em;
+    height: 6em;
+}
+button[type='submit'] {
+    margin-left: 15%;
+}
