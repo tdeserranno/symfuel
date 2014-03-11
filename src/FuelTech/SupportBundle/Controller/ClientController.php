@@ -29,7 +29,7 @@ class ClientController extends Controller
                 ));
     }
     
-    public function showDetailAction($id)
+    public function showDetailAction($id, Request $request)
     {
         //get client object
         $client = $this
@@ -42,6 +42,20 @@ class ClientController extends Controller
         }
         
         $form = $this->createForm(new ClientType(), $client);
+        
+        //handle form submission
+        $form->handleRequest($request);
+        //validate formdata object if form submitted(isValid returns false if form was not submitted)
+        if ($form->isValid()) {
+            //process form, i.e. persist data
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($client);
+            $em->flush();
+            
+            //redirect to client list
+            return $this->redirect($this->generateUrl('ftsupport_client_list'));
+        }
+        
 
         //render client detail page
         return $this->render(
@@ -50,9 +64,5 @@ class ClientController extends Controller
 //                    'client' => $client,
                     'form' => $form->createView(),
                 ));
-    }
-    public function updateAction(Request $request)
-    {
-        $client
     }
 }
