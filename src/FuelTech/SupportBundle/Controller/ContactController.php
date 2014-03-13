@@ -13,6 +13,21 @@ use FuelTech\SupportBundle\Form\Type\ContactType;
  */
 class ContactController extends Controller
 {
+    public function listAction()
+    {
+        //get contacts
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('FuelTechSupportBundle:Contact');
+        $query = $repository->createQueryBuilder('con')
+                ->getQuery();
+        $contacts = $query->getResult();
+        
+        //render page
+        return $this->render('FuelTechSupportBundle:Contact:list.html.twig', array(
+            'contacts' => $contacts,
+        ));
+    }
+    
     public function showDetailAction($id, Request $request)
     {
         //get contact object

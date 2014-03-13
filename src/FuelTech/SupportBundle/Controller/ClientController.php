@@ -13,7 +13,7 @@ use FuelTech\SupportBundle\Form\Type\ClientType;
  */
 class ClientController extends Controller
 {
-    public function indexAction()
+    public function listAction()
     {
         //get clients
         $repository = $this->getDoctrine()->getRepository('FuelTechSupportBundle:Client');
@@ -23,7 +23,7 @@ class ClientController extends Controller
 
         //render clientlist page
         return $this->render(
-                'FuelTechSupportBundle:Client:index.html.twig',
+                'FuelTechSupportBundle:Client:list.html.twig',
                 array(
                     'clients' => $clients,
                 ));
@@ -66,5 +66,50 @@ class ClientController extends Controller
                     'form' => $form->createView(),
                     'contacts' => $contacts,
                 ));
+    }
+    
+    public function newAction(Request $request)
+    {
+        //create empty form & object
+        $client = new \FuelTech\SupportBundle\Entity\Client();
+        $form = $this->createForm(new ClientType(), $client);
+        
+        //handle form submission
+        $form->handleRequest($request);
+        
+       //validate formdata
+        if ($form->isValid()) {
+            //create object
+            $client = $form->getData();
+            
+            //persist object
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($client);
+            $em->flush();
+            //redirect to client list
+            return $this->redirect($this->generateUrl('ftsupport_client_list'));
+            //var_dump($client);
+        }
+        
+        //render
+        return $this->render('FuelTechSupportBundle:Client:detail.html.twig',
+                array(
+                    'form' => $form->createView(),
+                ));
+    }
+    public function deleteAction($id)
+    {
+        //retrieve object
+        $em = $this->getDoctrine()->getManager();
+        $client = $em->getRepository('FuelTechSupportBundle:Client')->find($id);
+        
+        if (!$client) {
+            throw $this->createNotFoundException('No client found with id '.$id);
+        }
+        //delete object
+        $em->remove($client);
+        $em->flush();
+        //redirect to client list
+        return $this->redirect($this->generateUrl('ftsupport_client_list'));
     }
 }

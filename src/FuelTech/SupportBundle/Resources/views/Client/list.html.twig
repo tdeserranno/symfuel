@@ -14,9 +14,19 @@
                 <td>Postcode</td>
                 <td>Stad</td>
                 <td>Telefoon</td>
+                <td></td>
             </tr>
         </thead>
-        <tfoot></tfoot>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <form action="{{path('ftsupport_client_new')}}">
+                        <button>Nieuwe klant</button>
+                    </form>
+                    
+                </td>
+            </tr>
+        </tfoot>
         <tbody>
             {%for client in clients%}
             <tr>
@@ -25,6 +35,7 @@
                 <td>{{client.postcode}}</td>
                 <td>{{client.city}}</td>
                 <td>{{client.telephone}}</td>
+                <td><a href="{{path('ftsupport_client_delete', {'id':client.id})}}">Verwijder</a></td>
             </tr>
             {%endfor%}
         </tbody>

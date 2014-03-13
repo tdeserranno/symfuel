@@ -30,12 +30,23 @@ body {
     margin-right: 0.5em;
     background: lightskyblue;
 }
+.navigation li:last-of-type {
+    margin-right: 0;
+}
 .navigation a {
     text-decoration: none;
     display: table-cell;
     vertical-align: middle;
     font-size: 1.25em;
     color: black;
+}
+.navigation span {
+    display: table-cell;
+    vertical-align: middle;
+}
+#user-status {
+    background: none;
+    width: auto;
 }
 
 /***** H TAGS *****************************************************************/
@@ -54,8 +65,24 @@ h2 {
     background: lightskyblue;
     font-weight: bold;
 }
+.table tfoot {
+    background: lightskyblue;
+}
+.table tbody:before, .table tbody:after {
+    content: '';
+    display: block;
+    height: 1em;
+}
 .table td {
     padding: 5px 10px;
+}
+
+/***** HELPER *****************************************************************/
+.float-right {
+    float: right;
+}
+.float-left {
+    float:left;
 }
 
 /************************ CLEARFIX ********************************************/

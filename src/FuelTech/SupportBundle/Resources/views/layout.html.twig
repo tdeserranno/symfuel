@@ -10,9 +10,17 @@
 {%block body%}
     {%block navigation%}
     <nav class="navigation clearfix">
-        <ul>
+        <ul class="float-left">
             <li><a href="{{path('ftsupport_home')}}">Home</a></li>
             <li><a href="{{path('ftsupport_client_list')}}">Klanten</a></li>
+        </ul>
+        <ul class="float-right">
+            {%if app.user%}
+            <li id="user-status"><span>Aangemeld als {{app.user.username}}</span></li>
+            <li><a href="{{path('fos_user_security_logout')}}">Afmelden</a></li>
+            {%else%}
+            <li><a href="{{path('fos_user_security_login')}}">Aanmelden</a></li>
+            {%endif%}
         </ul>
     </nav>
     {%endblock%}

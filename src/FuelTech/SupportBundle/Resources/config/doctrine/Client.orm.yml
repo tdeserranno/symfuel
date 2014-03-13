@@ -26,11 +26,14 @@ FuelTech\SupportBundle\Entity\Client:
         fax:
             type: string
             length: 15
+            nullable: true
         email:
             type: string
             length: 255
+            nullable: true
         remark:
             type: text
+            nullable: true
     oneToMany:
         contacts:
             targetEntity : Contact

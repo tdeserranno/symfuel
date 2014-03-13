@@ -6,12 +6,23 @@ ftsupport_home:
     defaults: { _controller: FuelTechSupportBundle:Home:index }
 ftsupport_client_list:
     pattern: /client
-    defaults: { _controller: FuelTechSupportBundle:Client:index }
+    defaults: { _controller: FuelTechSupportBundle:Client:list }
 ftsupport_client_detail:
     pattern: /client/{id}
     defaults: { _controller: FuelTechSupportBundle:Client:showDetail }
     requirements:
         id: \d+
+ftsupport_client_new:
+    pattern: /client/new
+    defaults: { _controller: FuelTechSupportBundle:Client:new }
+ftsupport_client_delete:
+    pattern: /client/delete/{id}
+    defaults: { _controller: FuelTechSupportBundle:Client:delete }
+    requirements:
+        id: \d+
+ftsupport_contact_list:
+    pattern: /contact
+    defaults: { _controller: FuelTechSupportBundle:Contact:list }
 ftsupport_contact_detail:
     pattern: /contact/{id}
     defaults: { _controller: FuelTechSupportBundle:Contact:showDetail }

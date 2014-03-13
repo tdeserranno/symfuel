@@ -18,7 +18,7 @@ class User extends FOS_User
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
 
     /**
