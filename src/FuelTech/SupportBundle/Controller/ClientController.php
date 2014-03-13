@@ -5,6 +5,7 @@ namespace FuelTech\SupportBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FuelTech\SupportBundle\Form\Type\ClientType;
+use FuelTech\SupportBundle\Entity\Client;
 
 /**
  * Description of ClientController
@@ -71,7 +72,7 @@ class ClientController extends Controller
     public function newAction(Request $request)
     {
         //create empty form & object
-        $client = new \FuelTech\SupportBundle\Entity\Client();
+        $client = new Client();
         $form = $this->createForm(new ClientType(), $client);
         
         //handle form submission

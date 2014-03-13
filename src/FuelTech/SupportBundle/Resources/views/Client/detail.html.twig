@@ -24,9 +24,18 @@
                 <td>Telefoon</td>
                 <td>Mobiel</td>
                 <td>Email</td>
+                <td></td>
             </tr>
         </thead>
-        <tfoot></tfoot>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <form action="{{path('ftsupport_contact_new', {'clientid':form.vars.value.id})}}">
+                        <button>Nieuwe contactpersoon</button>
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
         <tbody>
             {%for contact in contacts%}
             <tr>
@@ -34,6 +43,7 @@
                 <td>{{contact.telephone}}</td>
                 <td>{{contact.mobile}}</td>
                 <td>{{contact.email}}</td>
+                <td><a href="{{path('ftsupport_contact_delete', {'id':contact.id})}}">Verwijder</a></td>
             </tr>
             {%endfor%}
         </tbody>

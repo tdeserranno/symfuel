@@ -14,12 +14,15 @@ FuelTech\SupportBundle\Entity\Contact:
         telephone:
             type: string
             length: 15
+            nullable: true
         mobile:
             type: string
             length: 15
+            nullable: true
         email:
             type: string
             length: 255
+            nullable: true
     manyToOne:
         client:
             targetEntity: Client

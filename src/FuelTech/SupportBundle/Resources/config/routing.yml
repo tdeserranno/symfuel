@@ -20,9 +20,16 @@ ftsupport_client_delete:
     defaults: { _controller: FuelTechSupportBundle:Client:delete }
     requirements:
         id: \d+
-ftsupport_contact_list:
-    pattern: /contact
-    defaults: { _controller: FuelTechSupportBundle:Contact:list }
+ftsupport_contact_new:
+    pattern: /contact/new/{clientid}
+    defaults: { _controller: FuelTechSupportBundle:Contact:new }
+    requirements:
+        clientid: \d+
+ftsupport_contact_delete:
+    pattern: /contact/delete/{id}
+    defaults: { _controller: FuelTechSupportBundle:Contact:delete }
+    requirements:
+            id: \d+
 ftsupport_contact_detail:
     pattern: /contact/{id}
     defaults: { _controller: FuelTechSupportBundle:Contact:showDetail }
