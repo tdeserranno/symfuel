@@ -40,7 +40,7 @@ button[type='submit'] {
 }
 
 /***** FORM BUTTONS ***********************************************************/
-form button {
+form button, form input[type='submit'] {
     font-size: 1em;
     color: #fff;
     padding: 5px 10px;
