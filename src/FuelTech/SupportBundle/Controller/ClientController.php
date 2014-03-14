@@ -5,6 +5,7 @@ namespace FuelTech\SupportBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FuelTech\SupportBundle\Form\Type\ClientType;
+use FuelTech\SupportBundle\Form\Type\SearchClientType;
 use FuelTech\SupportBundle\Entity\Client;
 
 /**
@@ -14,12 +15,29 @@ use FuelTech\SupportBundle\Entity\Client;
  */
 class ClientController extends Controller
 {
-    public function listAction()
+    public function listAction(Request $request)
     {
-        //get clients
+        //create search form
+        $criteria = array();
+        $form = $this->createForm(new SearchClientType(), $criteria);
+        
+        //handle form
+        $form->handleRequest($request);
+        
         $repository = $this->getDoctrine()->getRepository('FuelTechSupportBundle:Client');
-        $query = $repository->createQueryBuilder('cl')
+        if($form->isValid()) {
+            $criteria = $form->getData();
+            //filtered clients
+            $query = $repository->createQueryBuilder('cl')
+                    ->where('cl.name LIKE :crit')
+                    ->setParameter('crit', '%'.$criteria['name'].'%')
+                    ->getQuery();
+        } else {
+            //all clients
+            $query = $repository->createQueryBuilder('cl')
                 ->getQuery();
+        }
+        //get clients
         $clients = $query->getResult();
 
         //render clientlist page
@@ -27,6 +45,7 @@ class ClientController extends Controller
                 'FuelTechSupportBundle:Client:list.html.twig',
                 array(
                     'clients' => $clients,
+                    'form' => $form->createView(),
                 ));
     }
     

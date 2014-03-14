@@ -29,3 +29,12 @@ button[type='submit'] {
     margin-left: 1em;
     width: auto;
 }
+
+.search-inline {
+    background: lightskyblue;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+.search-inline div {
+    display: inline-block;
+}
