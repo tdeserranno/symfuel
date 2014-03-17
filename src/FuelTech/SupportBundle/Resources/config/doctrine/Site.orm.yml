@@ -1,0 +1,35 @@
+FuelTech\SupportBundle\Entity\Site:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+        address:
+            type: string
+            length: 100
+        postcode:
+            type: string
+            length: 4
+        city:
+            type: string
+            length: 50
+        installdate:
+            type: date
+        remark:
+            type: text
+    manyToOne:
+        client:
+            targetEntity: Client
+            inversedBy: sites
+            joinColumn:
+                name: client_id
+                referencedBy: id
+                onDelete: cascade
+    lifecycleCallbacks: {  }

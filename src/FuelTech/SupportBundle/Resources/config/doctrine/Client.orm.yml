@@ -36,6 +36,10 @@ FuelTech\SupportBundle\Entity\Client:
             nullable: true
     oneToMany:
         contacts:
-            targetEntity : Contact
+            targetEntity: Contact
+            mappedBy: client
+    oneToMany:
+        sites:
+            targetEntity: Site
             mappedBy: client
     lifecycleCallbacks: {  }

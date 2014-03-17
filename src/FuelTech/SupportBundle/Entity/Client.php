@@ -293,4 +293,42 @@ class Client
     {
         return $this->contacts;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sites;
+
+
+    /**
+     * Add sites
+     *
+     * @param \FuelTech\SupportBundle\Entity\Site $sites
+     * @return Client
+     */
+    public function addSite(\FuelTech\SupportBundle\Entity\Site $sites)
+    {
+        $this->sites[] = $sites;
+
+        return $this;
+    }
+
+    /**
+     * Remove sites
+     *
+     * @param \FuelTech\SupportBundle\Entity\Site $sites
+     */
+    public function removeSite(\FuelTech\SupportBundle\Entity\Site $sites)
+    {
+        $this->sites->removeElement($sites);
+    }
+
+    /**
+     * Get sites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSites()
+    {
+        return $this->sites;
+    }
 }
