@@ -23,28 +23,28 @@
                 <td>Adres</td>
                 <td>Postcode</td>
                 <td>Stad</td>
-                <td>Telefoon</td>
+                <td>Installatie datum</td>
                 <td></td>
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <td colspan="6">
-                    <form action="{{path('ftsupport_client_new')}}">
-                        <button>Nieuwe klant</button>
+                    <form action="{{path('ftsupport_site_new')}}">
+                        <button>Nieuwe Installatie</button>
                     </form>
                 </td>
             </tr>
         </tfoot>
         <tbody>
-            {%for client in clients%}
+            {%for site in sites%}
             <tr>
-                <td><a href="{{path('ftsupport_client_detail', {'id':client.id})}}">{{client.name}}</a></td>
-                <td>{{client.address}}</td>
-                <td>{{client.postcode}}</td>
-                <td>{{client.city}}</td>
-                <td>{{client.telephone}}</td>
-                <td><a href="{{path('ftsupport_client_delete', {'id':client.id})}}">Verwijder</a></td>
+                <td><a href="{{path('ftsupport_site_detail', {'id':site.id})}}">{{site.name}}</a></td>
+                <td>{{site.address}}</td>
+                <td>{{site.postcode}}</td>
+                <td>{{site.city}}</td>
+                <td>{{site.telephone}}</td>
+                <td><a href="{{path('ftsupport_site_delete', {'id':site.id})}}">Verwijder</a></td>
             </tr>
             {%endfor%}
         </tbody>

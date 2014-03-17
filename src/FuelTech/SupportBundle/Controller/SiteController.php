@@ -25,6 +25,41 @@ class SiteController extends Controller
         return $this->render('FuelTechSupportBundle:Site:list.html.twig', array('sites' => $sites));
     }
     
+    public function detailAction($id, Request $request)
+    {
+        //retrieve model
+        $site = $this->getDoctrine()
+                ->getRepository('FuelTechSupportBundle:Site')
+                ->find($id);
+        if (!$site) {
+            throw $this->createNotFoundException('No site found with id = '.$id);
+        }
+        
+        //create form
+        $form = $this->createForm(new SiteType(), $site);
+        
+        //handle form
+        $form->handleRequest($request);
+        
+        //validate form
+        if ($form->isValid()) {
+            //persist data
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($site);
+            $em->flush();
+            
+            //redirect to site list
+            return $this->redirect($this->generateUrl('ftsupport_site_list'));
+        }
+        
+        //render page
+        return $this->render(
+                'FuelTechSupportBundle:Site:detail.html.twig',
+                array(
+                    'form' => $form->createView(),
+                ));
+    }
+    
     public function newAction(Request $request)
     {
         //create empty form & object

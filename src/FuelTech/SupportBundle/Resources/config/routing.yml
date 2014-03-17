@@ -35,3 +35,19 @@ ftsupport_contact_detail:
     defaults: { _controller: FuelTechSupportBundle:Contact:showDetail }
     requirements:
         id: \d+
+ftsupport_site_list:
+    pattern: /site
+    defaults: { _controller: FuelTechSupportBundle:Site:list }
+ftsupport_site_detail:
+    pattern: /site/{id}
+    defaults: { _controller: FuelTechSupportBundle:Site:detail }
+    requirements:
+        id: \d+
+ftsupport_site_new:
+    pattern: /site/new
+    defaults: { _controller: FuelTechSupportBundle:Site:new }
+ftsupport_site_delete:
+    pattern: /site/delete/{id}
+    defaults: { _controller: FuelTechSupportBundle:Site:delete }
+    requirements:
+        id: \d+
