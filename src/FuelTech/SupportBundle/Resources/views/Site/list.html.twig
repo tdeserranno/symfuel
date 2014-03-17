@@ -1,0 +1,52 @@
+{% extends "FuelTechSupportBundle::layout.html.twig" %}
+
+{%block stylesheets%}
+{{parent()}}
+{#<link rel="stylesheet" href="{{asset('bundles/fueltechsupport/css/forms.css')}}">#}
+{%endblock%}
+
+{%block title%}
+    {{parent()}}
+    Installaties
+{%endblock%}
+{%block content%}
+    <h2>Installatie lijst</h2>
+    
+    {#<div class="search">
+        {{form(form)}}
+    </div>#}
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Naam</td>
+                <td>Adres</td>
+                <td>Postcode</td>
+                <td>Stad</td>
+                <td>Telefoon</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <form action="{{path('ftsupport_client_new')}}">
+                        <button>Nieuwe klant</button>
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {%for client in clients%}
+            <tr>
+                <td><a href="{{path('ftsupport_client_detail', {'id':client.id})}}">{{client.name}}</a></td>
+                <td>{{client.address}}</td>
+                <td>{{client.postcode}}</td>
+                <td>{{client.city}}</td>
+                <td>{{client.telephone}}</td>
+                <td><a href="{{path('ftsupport_client_delete', {'id':client.id})}}">Verwijder</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

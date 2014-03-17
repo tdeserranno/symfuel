@@ -53,7 +53,11 @@ class Client
      * @var string
      */
     private $remark;
-
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contacts;
 
     /**
      * Get id
@@ -248,11 +252,7 @@ class Client
     {
         return $this->remark;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $contacts;
-
+    
     /**
      * Constructor
      */

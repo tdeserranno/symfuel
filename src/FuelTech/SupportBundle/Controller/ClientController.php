@@ -24,6 +24,7 @@ class ClientController extends Controller
         //handle form
         $form->handleRequest($request);
         
+        //build query
         $repository = $this->getDoctrine()->getRepository('FuelTechSupportBundle:Client');
         if($form->isValid()) {
             $criteria = $form->getData();
