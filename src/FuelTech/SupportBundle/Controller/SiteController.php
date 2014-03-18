@@ -5,6 +5,7 @@ namespace FuelTech\SupportBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FuelTech\SupportBundle\Form\Type\SiteType;
+use FuelTech\SupportBundle\Form\Type\NewSiteType;
 use FuelTech\SupportBundle\Entity\Site;
 
 /**
@@ -62,9 +63,14 @@ class SiteController extends Controller
     
     public function newAction(Request $request)
     {
-        //create empty form & object
+        //create empty form & site object
         $site = new Site();
-        $form = $this->createForm(new SiteType(), $site);
+        $form = $this->createForm(new NewSiteType(), $site);
+        
+        //get clients for select element
+//        $repository = $this->getDoctrine()->getRepository('FuelTechSupportBundle:Client');
+//        $query = $repository->createQueryBuilder('cl')->getQuery();
+//        $clients = $query->getResult();
         
         //handle form submission
         $form->handleRequest($request);
@@ -84,6 +90,11 @@ class SiteController extends Controller
         }
         
         //render form
-        return $this->render('FuelTechSupport:Site:list.html.twig', array('form' => $form->createView()));
+        return $this->render(
+                'FuelTechSupportBundle:Site:detail.html.twig',
+                array(
+                    'form' => $form->createView(),
+//                    'clients' => $clients,
+                    ));
     }
 }

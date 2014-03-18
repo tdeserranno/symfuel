@@ -2,7 +2,7 @@
 
 {%block stylesheets%}
 {{parent()}}
-{#<link rel="stylesheet" href="{{asset('bundles/fueltechsupport/css/forms.css')}}">#}
+<link rel="stylesheet" href="{{asset('bundles/fueltechsupport/css/forms.css')}}">
 {%endblock%}
 
 {%block title%}
@@ -19,7 +19,8 @@
     <table class="table">
         <thead>
             <tr>
-                <td>Naam</td>
+                <td>Klant</td>
+                <td>Installatie</td>
                 <td>Adres</td>
                 <td>Postcode</td>
                 <td>Stad</td>
@@ -29,7 +30,7 @@
         </thead>
         <tfoot>
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     <form action="{{path('ftsupport_site_new')}}">
                         <button>Nieuwe Installatie</button>
                     </form>
@@ -39,11 +40,11 @@
         <tbody>
             {%for site in sites%}
             <tr>
+                <td>{{site.client.name}}</a></td>
                 <td><a href="{{path('ftsupport_site_detail', {'id':site.id})}}">{{site.name}}</a></td>
                 <td>{{site.address}}</td>
                 <td>{{site.postcode}}</td>
                 <td>{{site.city}}</td>
-                <td>{{site.telephone}}</td>
                 <td><a href="{{path('ftsupport_site_delete', {'id':site.id})}}">Verwijder</a></td>
             </tr>
             {%endfor%}

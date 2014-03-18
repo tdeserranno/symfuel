@@ -21,9 +21,11 @@ FuelTech\SupportBundle\Entity\Site:
             type: string
             length: 50
         installdate:
-            type: date
+            type: string
+            length: 50
         remark:
             type: text
+            nullable: true
     manyToOne:
         client:
             targetEntity: Client

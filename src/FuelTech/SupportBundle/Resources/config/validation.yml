@@ -31,3 +31,24 @@ FuelTech\SupportBundle\Entity\Contact:
         email:
             - Email:
                 checkMX: true
+FuelTech\SupportBundle\Entity\Site:
+    properties:
+        name:
+            - NotBlank: ~
+        address:
+            - NotBlank: ~
+        postcode:
+            - NotBlank: ~
+            - Type: integer
+            - Length:
+                min: 4
+                max: 4
+                minMessage: "Postcode moet exact 4 cijfers zijn"
+                maxMessage: "Postcode moet exact 4 cijfers zijn"
+        city:
+            - NotBlank: ~
+        installdate:
+            - NotBlank: ~
+            - Date: ~
+        remark:
+            
